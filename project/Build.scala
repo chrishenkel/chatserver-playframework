@@ -19,6 +19,7 @@ object ApplicationBuild extends Build {
       "com.google.api-client" % "google-api-client-gson" % "1.17.0-rc",
       "com.google.apis" % "google-api-services-plus" % "v1-rev118-1.17.0-rc",
       "org.mockito" % "mockito-all" % "1.8.4",
+      "com.googlecode.json-simple" % "json-simple" % "1.1.1",
       "cglib" % "cglib" % "2.2.2"
     )
 
@@ -28,4 +29,4 @@ object ApplicationBuild extends Build {
       resolvers += "Scala-Tools Maven2 Snapshots Repository" at "http://scala-tools.org/repo-snapshots"
             
     )
-} 
+}  
