@@ -16,6 +16,8 @@ object ApplicationBuild extends Build {
       "org.springframework" % "spring-tx" % "4.0.1.RELEASE",
       "org.springframework" % "spring-test" % "4.0.1.RELEASE" % "test",
       "org.hibernate" % "hibernate-entitymanager" % "4.1.9.Final",
+      "com.google.api-client" % "google-api-client-gson" % "1.17.0-rc",
+      "com.google.apis" % "google-api-services-plus" % "v1-rev118-1.17.0-rc",
       "cglib" % "cglib" % "2.2.2"
     )
 
@@ -25,5 +27,4 @@ object ApplicationBuild extends Build {
       resolvers += "Scala-Tools Maven2 Snapshots Repository" at "http://scala-tools.org/repo-snapshots"
             
     )
-
 }
