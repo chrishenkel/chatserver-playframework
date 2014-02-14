@@ -1,5 +1,8 @@
 package configs;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -10,10 +13,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-
-import play.Logger;
 import play.Play;
 
 @Configuration
@@ -44,6 +43,7 @@ public class DataConfig {
     @Bean
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        System.err.println("url is " + Play.application().configuration().getString("db.default.url"));
         dataSource.setDriverClassName(Play.application().configuration().getString("db.default.driver"));
         dataSource.setUrl(Play.application().configuration().getString("db.default.url"));
         return dataSource;
