@@ -33,11 +33,11 @@ public class Application extends Controller {
 	}
 
 	public Result index() throws IOException {
-		GoogleCredential credential = new GoogleCredential()
-				.setAccessToken("blah");
-		Plus plus = new Plus.Builder(new NetHttpTransport(), new GsonFactory(),
-				credential).setApplicationName("Google-PlusSample/1.0").build();
-		return ok(index.render(gcmService + " plus = " + plus.activities().search("Google").execute()));
+//		GoogleCredential credential = new GoogleCredential()
+//				.setAccessToken("blah");
+//		Plus plus = new Plus.Builder(new NetHttpTransport(), new GsonFactory(),
+//				credential).setApplicationName("Google-PlusSample/1.0").build();
+		return ok(index.render("blah"));//gcmService + " plus = " + plus.activities().search("Google").execute()));
 	}
 
 	public Result test() {
