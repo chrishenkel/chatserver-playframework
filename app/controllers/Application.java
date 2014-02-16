@@ -3,6 +3,9 @@ package controllers;
 import java.io.IOException;
 import java.util.UUID;
 
+import models.Account;
+
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import play.libs.Json;
@@ -24,6 +27,9 @@ public class Application extends Controller {
 	@Autowired
 	private GCMService gcmService;
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	public GCMService getGcmService() {
 		return gcmService;
 	}
@@ -37,7 +43,7 @@ public class Application extends Controller {
 //				.setAccessToken("blah");
 //		Plus plus = new Plus.Builder(new NetHttpTransport(), new GsonFactory(),
 //				credential).setApplicationName("Google-PlusSample/1.0").build();
-		return ok(index.render("blah"));//gcmService + " plus = " + plus.activities().search("Google").execute()));
+		return ok(index.render("blah" + sessionFactory));//gcmService + " plus = " + plus.activities().search("Google").execute()));
 	}
 
 	public Result test() {
@@ -54,7 +60,7 @@ public class Application extends Controller {
 		}
 	}
 
-	public Result login() {
+	public Result facebookLogin() {
 		JsonNode json = request().body().asJson();
 		ObjectNode result = Json.newObject();
 		if (json == null) {
@@ -65,4 +71,17 @@ public class Application extends Controller {
 			return ok(result);
 		}
 	}
+
+	public Result login() {
+		JsonNode json = request().body().asJson();
+		ObjectNode result = Json.newObject();
+		if (json == null) {
+			return badRequest("Expecting json data");
+		} else {
+			String username = json.findPath("username").textValue();
+			String password = json.findPath("password").textValue();
+			return ok(result);
+		}
+	}
+
 }

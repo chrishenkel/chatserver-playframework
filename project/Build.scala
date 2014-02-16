@@ -20,6 +20,7 @@ object ApplicationBuild extends Build {
       "com.google.apis" % "google-api-services-plus" % "v1-rev118-1.17.0-rc",
       "org.mockito" % "mockito-all" % "1.8.4",
       "com.googlecode.json-simple" % "json-simple" % "1.1.1",
+      "commons-dbcp" % "commons-dbcp" % "1.2.2",
       "cglib" % "cglib" % "2.2.2"
     )
 

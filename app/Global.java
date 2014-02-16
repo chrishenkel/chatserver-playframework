@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import play.Application;
 import play.GlobalSettings;
 import configs.AppConfig;
+import configs.PersistenceConfig;
 
 public class Global extends GlobalSettings {
 
@@ -11,7 +12,7 @@ public class Global extends GlobalSettings {
 
     @Override
     public void onStart(Application app) {
-        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        ctx = new AnnotationConfigApplicationContext(AppConfig.class, PersistenceConfig.class);
     }
 
     @Override

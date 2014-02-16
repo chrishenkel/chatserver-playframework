@@ -8,10 +8,10 @@ import com.google.android.gcm.server.Sender;
 @Service
 public class GCMServiceImpl implements GCMService {
 
-	private MySenderService senderService;
+	private SenderService senderService;
 
 	@Autowired
-	public GCMServiceImpl(MySenderService senderService)
+	public GCMServiceImpl(SenderService senderService)
 	{
 		this.senderService = senderService;
 	}
