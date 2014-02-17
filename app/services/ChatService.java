@@ -1,6 +1,6 @@
 package services;
 
-import models.ChatMessage;
+import chatserver.models.ChatMessage;
 
 public interface ChatService {
 

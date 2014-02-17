@@ -1,9 +1,10 @@
 package tests.services;
 
-import models.ChatMessage;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import chatserver.models.ChatMessage;
 
 import services.ChatServiceImpl;
 import services.GCMService;

@@ -3,7 +3,6 @@ package controllers;
 import java.io.IOException;
 import java.util.UUID;
 
-import models.Account;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import services.AccountService;
 import services.GCMService;
 import views.html.index;
 
+import chatserver.models.Account;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.services.plus.Plus;
 
 @org.springframework.stereotype.Controller
 public class Application extends Controller {
@@ -29,6 +27,9 @@ public class Application extends Controller {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private AccountService accountService;
 	
 	public GCMService getGcmService() {
 		return gcmService;
@@ -43,6 +44,11 @@ public class Application extends Controller {
 //				.setAccessToken("blah");
 //		Plus plus = new Plus.Builder(new NetHttpTransport(), new GsonFactory(),
 //				credential).setApplicationName("Google-PlusSample/1.0").build();
+		Account test = new Account();
+		test.password = "bblah";
+		
+		accountService.saveAccount(test);
+		
 		return ok(index.render("blah" + sessionFactory));//gcmService + " plus = " + plus.activities().search("Google").execute()));
 	}
 

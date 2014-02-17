@@ -3,13 +3,12 @@ import Keys._
 import play.Project._
 
 object ApplicationBuild extends Build {
-
     val appName         = "Chatserver"
     val appVersion      = "1.0"
 
     val appDependencies = Seq(      
     	javaCore,
-      "com.h2database" % "h2" % "1.3.168",
+      "com.h2database" % "h2" % "1.3.175",
       "org.springframework" % "spring-context" % "4.0.1.RELEASE",
       "org.springframework" % "spring-orm" % "4.0.1.RELEASE",
       "org.springframework" % "spring-jdbc" % "4.0.1.RELEASE",

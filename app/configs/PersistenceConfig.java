@@ -29,10 +29,8 @@ public class PersistenceConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(restDataSource());
-		sessionFactory
-				.setPackagesToScan(new String[] { "org.baeldung.spring.persistence.model" });
+		sessionFactory.setPackagesToScan(new String[] { "chatserver.models" });
 		sessionFactory.setHibernateProperties(hibernateProperties());
-
 		return sessionFactory;
 	}
 
@@ -54,7 +52,6 @@ public class PersistenceConfig {
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(sessionFactory().getObject());
-
 		return txManager;
 	}
 
@@ -66,11 +63,10 @@ public class PersistenceConfig {
 	Properties hibernateProperties() {
 		return new Properties() {
 			{
-				setProperty("hibernate.hbm2ddl.auto", "create - drop");
+				setProperty("hibernate.hbm2ddl.auto", "create-drop");
 				setProperty("hibernate.dialect",
 						"org.hibernate.dialect.H2Dialect");
 				setProperty("hibernate.show_sql", "true");
-				setProperty("hibernate.globally_quoted_identifiers", "true");
 			}
 		};
 	}

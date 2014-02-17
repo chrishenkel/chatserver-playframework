@@ -2,7 +2,8 @@ package services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import models.ChatMessage;
+import chatserver.models.ChatMessage;
+
 
 public class ChatServiceImpl implements ChatService {
 

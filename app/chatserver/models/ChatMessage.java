@@ -1,4 +1,4 @@
-package models;
+package chatserver.models;
 
 public class ChatMessage {
 	public String message;
