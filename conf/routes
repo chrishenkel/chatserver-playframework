@@ -3,10 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /                           @controllers.Application.index()
-POST	/test                       @controllers.Application.test()
-POST	/login						@controllers.Application.login()
-POST	/facebook/login				@controllers.Application.facebookLogin()
+GET     /                           @chatserver.controllers.Application.index()
+POST	/test                       @chatserver.controllers.Application.test()
+POST	/login						@chatserver.controllers.Application.login()
+POST	/facebook/login				@chatserver.controllers.Application.facebookLogin()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

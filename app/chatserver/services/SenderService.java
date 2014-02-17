@@ -1,4 +1,4 @@
-package services;
+package chatserver.services;
 
 import org.springframework.stereotype.Service;
 

@@ -12,6 +12,7 @@ public class Account  {
 	@Id @GeneratedValue
 	public Long id;
 
+	public String UUID;
 	public String username;
 	public String password;
 	public String type;

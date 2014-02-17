@@ -1,4 +1,4 @@
-package services;
+package chatserver.services;
 
 import chatserver.models.ChatMessage;
 

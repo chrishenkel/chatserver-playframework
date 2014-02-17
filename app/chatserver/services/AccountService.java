@@ -1,7 +1,7 @@
-package services;
+package chatserver.services;
 
 import chatserver.models.Account;
 
 public interface AccountService {
-	public void saveAccount(Account account);
+	public void register(Account account);
 }

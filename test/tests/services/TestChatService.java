@@ -5,9 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import chatserver.models.ChatMessage;
+import chatserver.services.ChatServiceImpl;
+import chatserver.services.GCMService;
 
-import services.ChatServiceImpl;
-import services.GCMService;
 import static org.mockito.Mockito.*;
 
 public class TestChatService {

@@ -1,4 +1,4 @@
-package controllers;
+package chatserver.controllers;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import services.AccountService;
-import services.GCMService;
 import views.html.index;
 
 import chatserver.models.Account;
+import chatserver.services.AccountService;
+import chatserver.services.GCMService;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -25,9 +25,6 @@ public class Application extends Controller {
 	@Autowired
 	private GCMService gcmService;
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
 	@Autowired
 	private AccountService accountService;
 	
@@ -47,9 +44,9 @@ public class Application extends Controller {
 		Account test = new Account();
 		test.password = "bblah";
 		
-		accountService.saveAccount(test);
+		accountService.register(test);
 		
-		return ok(index.render("blah" + sessionFactory));//gcmService + " plus = " + plus.activities().search("Google").execute()));
+		return ok(index.render("blah"));//gcmService + " plus = " + plus.activities().search("Google").execute()));
 	}
 
 	public Result test() {
