@@ -1,13 +1,12 @@
 Restful Chat Server written in Play Framework utilizing GCM (google cloud messenging)
 ===================================== 
 
-To setup heroku deployment:
+To setup for heroku deployment:
 
 step 1: clone git repository
 step 2: type "heroku create" to create remote branch
 step 3: type "git push heroku master"
-step 4: lookup database credentials on https://postgres.heroku.com/databases for the database that play
-        just created and follow the instructions in conf/prod.conf for setting up database credentials
+step 4: lookup database credentials on https://postgres.heroku.com/databases for the database that play just created and follow the instructions in conf/prod.conf for setting up database credentials
 step 5: commit all changed files 
 step 6: push to heroku with "git push heroku master"
 step 7: once all files are commited successfully, type "heroku restart"
