@@ -19,6 +19,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import play.Logger;
 import play.Play;
 
 @Configuration
@@ -50,7 +51,16 @@ public class PersistenceConfig {
 
 	@Bean
 	public DataSource restDataSource() {
+		String driver = Play.application().configuration()
+				.getString("db.default.driver");
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e) {
+			Logger.error("Could find driver on classpath: " + driver);
+		}
+		
 		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName(driver);
 		dataSource.setUrl(Play.application().configuration()
 				.getString("db.default.url"));
 		dataSource.setUsername(Play.application().configuration()
