@@ -1,6 +1,6 @@
 #Restful Chat Server written in Play Framework utilizing GCM 
 
-To setup for heroku deployment:
+##To setup for heroku deployment
 
 1. clone git repository
 2. type "heroku create" to create remote branch
