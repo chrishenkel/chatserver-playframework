@@ -51,8 +51,6 @@ public class PersistenceConfig {
 	@Bean
 	public DataSource restDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(Play.application().configuration()
-				.getString("db.default.driver"));
 		dataSource.setUrl(Play.application().configuration()
 				.getString("db.default.url"));
 		dataSource.setUsername(Play.application().configuration()
