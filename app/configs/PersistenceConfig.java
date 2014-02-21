@@ -1,5 +1,7 @@
 package configs;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -19,6 +21,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import play.Logger;
 import play.Play;
 
 @Configuration
@@ -50,7 +53,23 @@ public class PersistenceConfig {
 
 	@Bean
 	public DataSource restDataSource() {
+		URI  dbUri = null;
+        try {
+			dbUri = new URI(System.getenv("DATABASE_URL"));
+		} catch (URISyntaxException e) {
+			Logger.debug("error obtaining DATABASE_URL: " + e.getMessage() + " reason: " + e.getReason());
+		}
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath() + ":" + dbUri.getPort() + dbUri.getPath();
 		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setUrl(dbUrl);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
+		return dataSource;
+		
+/*		
+				BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName(Play.application().configuration()
 				.getString("db.default.driver"));
 		dataSource.setUrl(Play.application().configuration()
@@ -60,6 +79,7 @@ public class PersistenceConfig {
 		dataSource.setPassword(Play.application().configuration()
 				.getString("db.default.password"));
 		return dataSource;
+*/
 	}
 
 	@Bean
