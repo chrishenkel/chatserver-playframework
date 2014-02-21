@@ -95,11 +95,8 @@ public class PersistenceConfig {
 		return new Properties() {
 			{
 				setProperty("hibernate.hbm2ddl.auto", "create-drop");
-				Logger.debug("dialect is "
-						+ Play.application().configuration()
-								.getString("db.hibernate.dialect"));
 				setProperty("hibernate.dialect", Play.application()
-						.configuration().getString("db.hibernate.dialect"));
+						.configuration().getString("chatserver.hibernate.dialect"));
 				setProperty("hibernate.show_sql", "true");
 			}
 		};
