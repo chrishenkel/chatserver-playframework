@@ -8,6 +8,6 @@ import com.google.android.gcm.server.Sender;
 public class SenderService extends Sender {
 
 	public SenderService() {
-		super("natural-motif-491");
+		super("AIzaSyCDKcNPAshd-QX-8ProzwEsttveYm7PASo");
 	}
 }

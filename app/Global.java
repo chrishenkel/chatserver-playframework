@@ -8,16 +8,22 @@ import configs.PersistenceConfig;
 
 public class Global extends GlobalSettings {
 
-    private ApplicationContext ctx;
+	private ApplicationContext ctx;
 
-    @Override
-    public void onStart(Application app) {
-        ctx = new AnnotationConfigApplicationContext(AppConfig.class, PersistenceConfig.class);
-    }
+	@Override
+	public void onStart(Application app) {
+		ctx = new AnnotationConfigApplicationContext(AppConfig.class,
+				PersistenceConfig.class);
+	}
 
-    @Override
-    public <A> A getControllerInstance(Class<A> clazz) {
-        return ctx.getBean(clazz);
-    }
+	@Override
+	public void onStop(Application arg0) {
+		super.onStop(arg0);
+	}
+
+	@Override
+	public <A> A getControllerInstance(Class<A> clazz) {
+		return ctx.getBean(clazz);
+	}
 
 }

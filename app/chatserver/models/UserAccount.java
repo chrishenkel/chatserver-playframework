@@ -5,15 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Account  {
-	public static final String TYPE_DEFAULT = "TYPE_DEFAULT";
-	public static final String TYPE_FACEBOOK = "TYPE_FACEBOOK";
+public class UserAccount  {
 
 	@Id @GeneratedValue
 	public Long id;
 
-	public String UUID;
 	public String username;
 	public String password;
+	public String sessionToken;
+	public long expires;
 	public String type;
+	public String gcmRegId;
+
 }
