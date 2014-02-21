@@ -8,7 +8,7 @@ object ApplicationBuild extends Build {
 
     val appDependencies = Seq(      
     	javaCore,
-	  "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
+	   "org.postgresql" % "postgresql" % "9.2-1002-jdbc4",
       "com.h2database" % "h2" % "1.3.175",
       "org.springframework" % "spring-context" % "4.0.1.RELEASE",
       "org.springframework" % "spring-orm" % "4.0.1.RELEASE",
