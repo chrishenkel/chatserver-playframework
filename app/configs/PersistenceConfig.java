@@ -58,7 +58,7 @@ public class PersistenceConfig {
 		} catch (ClassNotFoundException e) {
 			Logger.error("Could find driver on classpath: " + driver);
 		}
-		
+
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName(driver);
 		dataSource.setUrl(Play.application().configuration()
@@ -95,9 +95,11 @@ public class PersistenceConfig {
 		return new Properties() {
 			{
 				setProperty("hibernate.hbm2ddl.auto", "create-drop");
-				setProperty("hibernate.dialect",
-						Play.application().configuration()
-						.getString("db.hibernate.dialect"));
+				Logger.debug("dialect is "
+						+ Play.application().configuration()
+								.getString("db.hibernate.dialect"));
+				setProperty("hibernate.dialect", Play.application()
+						.configuration().getString("db.hibernate.dialect"));
 				setProperty("hibernate.show_sql", "true");
 			}
 		};
