@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/chatserver -Dhttp.port=${PORT} -DapplyEvolutions.default=true -Dconfig.resource=prod.conf
+web: target/universal/stage/bin/chatserver -Dhttp.port=${PORT} -Dconfig.resource=prod.conf
