@@ -1,5 +1,8 @@
 #Restful Chat Server written in Play Framework utilizing GCM 
 
+## Description
+A chat server designed as a restful endpoint. Uses GCM (Google Cloud Messenging) for push based messenging.
+
 ##To setup for heroku deployment
 
 1. clone git repository
